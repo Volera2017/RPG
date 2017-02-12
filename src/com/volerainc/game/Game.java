@@ -53,6 +53,11 @@ public class Game extends Canvas implements Runnable
     public void tick()
     {
     	tickCount++;
+    	
+    	for(int i = 0; i < pixels.length;++i)
+    	{
+    		pixels[i] = i + tickCount;
+    	}
     }
     
     public void render()
@@ -66,8 +71,7 @@ public class Game extends Canvas implements Runnable
     	
     	Graphics g = bs.getDrawGraphics();
     	
-    	g.setColor(Color.BLACK);
-    	g.fillRect(0, 0,  getWidth(), getHeight());
+    	g.drawImage(image,  0 ,  0, getWidth(), getHeight(), null);
     	
     	g.dispose();
     	bs.show();
